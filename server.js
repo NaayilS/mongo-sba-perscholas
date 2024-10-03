@@ -8,14 +8,13 @@ const gameRoutes = require('./routes/gameRoutes');
 // Middleware to parse JSON requests
 app.use(express.json());
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost/nbaStats', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => console.log('Connected to MongoDB...'))  // Ensure connection is stable
-  .catch(err => console.error('Could not connect to MongoDB...', err));
-
+// MongoDB Atlas Connection
+mongoose.connect('mongodb+srv://NaayilS:Evanston2036@cluster0.w1xwr.mongodb.net/nbaStats?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+    .then(() => console.log('Connected to MongoDB Atlas...'))
+    .catch(err => console.error('Could not connect to MongoDB...', err));
 // Base route for welcome message
 app.get('/', (req, res) => {
   res.send('Welcome to the NBA Stats Manager');
