@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+// Player Schema
 const playerSchema = new mongoose.Schema({
   playerName: { type: String, required: true },
   team: { type: mongoose.Schema.Types.ObjectId, ref: 'Team' },
@@ -10,7 +10,6 @@ const playerSchema = new mongoose.Schema({
     assists: { type: Number, default: 0 },
   },
 });
-
+// Create and export the Player model
 const Player = mongoose.model('Player', playerSchema);
-
 module.exports = Player;
